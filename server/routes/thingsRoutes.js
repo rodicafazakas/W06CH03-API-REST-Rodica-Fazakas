@@ -63,6 +63,27 @@ router.put(
   }
 );
 
+router.delete(
+  "/:name",
+  (req, res, next) => {
+    console.log("Delete a thing");
+    next();
+  },
+  async (req, res, next) => {
+    try {
+      const thingToDelete = req.params.name;
+      const thing = await Thing.deleteOne({
+        thing: thingToDelete,
+      });
+      res.json(thing);
+    } catch (error) {
+      error.code = 400;
+      error.message = "Error!";
+      next(error);
+    }
+  }
+);
+
 
 
 
