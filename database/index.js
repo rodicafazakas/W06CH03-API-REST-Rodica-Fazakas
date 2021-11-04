@@ -1,4 +1,4 @@
-const debug = require("debug")("learnings:database");
+const debug = require("debug")("things:database");
 
 const chalk = require("chalk");
 const mongoose = require("mongoose");

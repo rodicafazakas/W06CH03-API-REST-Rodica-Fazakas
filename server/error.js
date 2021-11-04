@@ -1,4 +1,4 @@
-const debug = require("debug")("learnings:errors");
+const debug = require("debug")("things:errors");
 
 const notFoundErrorHandler = (req, res) => {
   res.status(404).json({ error: "Endpoint not found" });

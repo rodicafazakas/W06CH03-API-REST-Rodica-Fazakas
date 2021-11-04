@@ -9,7 +9,7 @@ const port = process.env.SERVER_PORT || 5000;
 (async () => {
   const answers = await inquirer.prompt([
     {
-      name: "puerte",
+      name: "puerto",
       type: "input",
       message: "¿En qué puerto quieres que se inicie la API?",
       default: 4000,
@@ -36,5 +36,5 @@ const port = process.env.SERVER_PORT || 5000;
     },
   ]);
   console.log(answers);
-  initializeServer(port);
+  initializeServer(answers.puerto);
 })();
