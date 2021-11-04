@@ -3,6 +3,7 @@ const debug = require("debug")("learnings:server");
 const express = require("express");
 const morgan = require("morgan");
 const { notFoundErrorHandler, generalErrorHandler } = require("./error");
+const learningsRoutes = require("./routes/learningsRoutes");
 
 const app = express();
 
