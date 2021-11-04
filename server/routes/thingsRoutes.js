@@ -26,9 +26,9 @@ router.get("/:id", async (req, res, next) => {
 });
 
 router.post(
-  "/new",
+  "/",
   (req, res, next) => {
-    console.log("¡Ojo! Están creando a thing.");
+    console.log("Create a new thing.");
     next();
   },
   async (req, res, next) => {
@@ -39,6 +39,25 @@ router.post(
     } catch (error) {
       error.code = 400;
       error.message = "Try again!";
+      next(error);
+    }
+  }
+);
+
+router.put(
+  "/",
+  (req, res, next) => {
+    console.log("Modify a thing");
+    next();
+  },
+  async (req, res, next) => {
+    try {
+      const thing = req.body;
+      await Thing.findByIdAndUpdate(thing._id, thing);
+      res.json(thing);
+    } catch (error) {
+      error.code = 400;
+      error.message = "Error!";
       next(error);
     }
   }
